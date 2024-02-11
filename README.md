@@ -29,3 +29,6 @@ Then, view the [interface](http://localhost:3000/graphiql)
 edit `packages/app/src/components/Root/Root.tsx`
 add a new <SidebarItem to="graphiql"
 
+### Configuring Safari to work
+
+Due to CORS restrictions enforced by Ox's API endpoint, which only responds to requests to coming from `app.ox.security` when making API calls via a browser, it's necessary to bypass CORS so that GraphiQL works within the Backstage portal. In Safari, this can be done by enabling `Develop (menu) -> Developer Settings... -> Developer -> Disable cross-origin restrictions`
