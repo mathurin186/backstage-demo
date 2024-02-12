@@ -12,6 +12,10 @@
 9. `yarn install` (again)
 10. Backstage launches!
 
+### Note about subsequent runs
+
+If you use `yarn start` you'll notice errors about `Failed to load entity kinds` . This happens because the cmd `yarn start-backend` was not run (`yarn dev` starts both the frontend and backend)
+
 ### Adding [GraphQL Plugin](https://github.com/backstage/backstage/tree/master/plugins/graphiql)
 From your Backstage root directory
 `yarn --cwd packages/app add @backstage/plugin-graphiql`
