@@ -30,23 +30,72 @@ export const apis: AnyApiFactory[] = [
        GraphQLEndpoints.from([
          // Use the .create function if all you need is a static URL and headers.
 
-         GraphQLEndpoints.create({
-           id: 'ox',
-           title: 'Ox',
-           url: 'https://api.cloud.ox.security/api/apollo-gateway',
-           // Optional extra headers
-           headers: { Extra: 'Header' },
-         }),
+//         GraphQLEndpoints.create({
+//           id: 'ox',
+//           title: 'Ox',
+//           url: 'https://api.cloud.ox.security/api/apollo-gateway',
+//           // Optional extra headers
+//           headers: { Authorization: 'ox_@kyHubbbDx4bxbbFvC00oSe~UCj2k@EcvwAC' },
+//         }),
 
+        {
+          id: 'ox',
+          title: 'Ox',
+          fetcher: async (params: any) => {
+            return fetch('https://api.cloud.ox.security/api/apollo-gateway', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json',"Authorization":"ox_@kyHubbbDx4bxbbFvC00oSe~UCj2k@EcvwAC" },
+              body: JSON.stringify(params)
+            }).then(res => res.json());
+          }
+        },
 
-         GraphQLEndpoints.create({
+        {   
            id: 'gitlab',
            title: 'GitLab',
-           url: 'https://gitlab.com/api/graphql',
-           // Optional extra headers
-           headers: { Extra: 'Header' },
-         }),
+           fetcher: async (params: any) => {
+             return fetch('https://gitlab.com/api/graphql', {
+               method: 'POST',
+               headers: { 'Content-Type': 'application/json' },
+               body: JSON.stringify(params)
+            }).then(res => res.json());
+          }
+        },
 
+
+        {
+           id: 'github',
+           title: 'Github',
+           fetcher: async (params: any) => {
+             return fetch('https://api.github.com/graphql', {
+               method: 'POST',
+               headers: { 'Content-Type': 'application/json', "Authorization":"Bearer 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" },
+               body: JSON.stringify(params)
+            }).then(res => res.json());
+          }
+        },
+
+
+        {
+           id: 'starwars',
+           title: 'Star Wars',
+           fetcher: async (params: any) => {
+             return fetch('https://swapi-graphql.netlify.app/.netlify/functions/index', {
+               method: 'POST',
+               headers: { 'Content-Type': 'application/json' },
+               body: JSON.stringify(params)
+            }).then(res => res.json());
+          }
+        },
+
+
+//         GraphQLEndpoints.create({
+//           id: 'github',
+//           title: 'Github',
+//           url: 'https://api.github.com/graphql',
+//           // Optional extra headers
+//           headers: { Authorization: 'Bearer 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' },
+//         }),
 
        ]),
    }),
