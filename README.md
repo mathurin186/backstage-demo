@@ -1,5 +1,16 @@
 # backstage-demo
 
+### Environments 
+* For this we are looking at both Mac OSX and Linux 
+* Automation scripts are setup for a baremetal Ubuntu install working with both v22 and v24
+
+### Requirements
+1. Build essentials, g++ [Mac](https://www.freecodecamp.org/news/install-xcode-command-line-tools/) - [Ubuntu](https://itsfoss.com/build-essential-ubuntu/)
+2. [Nodejs](https://nodejs.org/en/about/previous-releases)
+3. [nvm](https://www.freecodecamp.org/news/node-version-manager-nvm-install-guide/)
+4. [docker](https://docs.docker.com/engine/install/)
+5. [yarn](https://classic.yarnpkg.com/en/docs/install#mac-stable)
+
 ### Setup instructions
 1. `npx @backstage/create-app@latest`
 2. `npm install -g node-gyp`
